@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management System</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                <nav class="navbar navbar-dark bg-primary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand text-bold" href="#">
+                            <img src="https://img.icons8.com/color/96/000000/angularjs.png" width="50" alt="logo">
+                            <span class="text-uppercase">Student Management System</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="text-center">
+                <h1>List of Students </h1>
+                <br>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+        <div class="row">
+                <div class="col-lg-3">
+                    <a th:href="@{/students/new}" class="btn btn-primary btn-sm mb-3 ">Add Student</a>
+                </div>
+            </div>
+        <table class="table table-striped table-bordered">
+            <thead class=" table-primary bg-primary">
+                <tr class="bg-primary">
+                    <th>Student First Name</th>
+                    <th>Student Last Name</th>
+                    <th>Student Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="student: ${students}">
+                    <td th:text="${student.firstName}"></td>
+                    <td th:text="${student.lastName}"></td>
+                    <td th:text="${student.email}"></td>
+                    <td>
+                    	<a th:href="@{/students/edit/{id}(id=${student.id})}"
+                    	class ="btn btn-primary">Update</a>
+
+                    	<a th:href="@{/students/{id}(id=${student.id})}"
+                    	class ="btn btn-danger">Danger</a>
+                    </td>
+
+                </tr>
+            </tbody>
+
+
+        </table>
+    </div>
+    </div>
+</body>
+</html>

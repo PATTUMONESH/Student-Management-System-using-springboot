@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student management System</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+<body>
+ <br><br>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="card col-lg-6 col-md-6 col-sm-6 container justify-content-center">
+                <h1 class="text-center">Create New Student</h1>
+
+
+
+                <div class="card-body">
+                    <form th:action="@{/students}" th:object="${student}" method="POST">
+                        <div class="form-group">
+                            <label for="">Student First Name</label>
+                            <input 
+                            type="text" 
+                            name="firstName"
+                            th:field="*{firstName}" 
+                            class="form-control"
+                            placeholder="Enter Student first Name" />
+                        </div>
+                            <br><br>
+
+                        <div class="form-group">
+                            <label for="">Student Last Name</label>
+                            <input 
+                            type="text" 
+                            name="lastName" 
+                            th:field="*{lastName}"
+                            class="form-control"
+                            placeholder="Enter Student last Name" />
+                        </div>
+                        <br><br>
+
+                        <div class="form-group">
+                            <label for="">Student Email</label>
+                            <input 
+                            type="text" 
+                            name="email"
+                            th:field="*{email}" 
+                            class="form-control" 
+                            placeholder="Enter Student Email" />
+                        </div>
+                        <br><br>
+
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
+                        <br><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
